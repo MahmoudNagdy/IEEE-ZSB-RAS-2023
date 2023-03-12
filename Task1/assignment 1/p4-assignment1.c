@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-int add(int *firstNum, int *secondNum){
+int add(int *fNum, int *sNum){
     int sum = 0;
-    sum = *firstNum + *secondNum;
+    sum = *fNum + *sNum;
     return sum;
 }
 
 void main(){
-    int first;
-    int second;
+    int fNum;
+    int sNum;
     int sum = 0;
     printf("Enter First Num: ");
-    scanf("%d", &first);
+    scanf("%d", &fNum);
     printf("Enter Second Num: ");
-    scanf("%d", &second);
+    scanf("%d", &sNum);
 
-    sum = add(&first, &second);
+    sum = add(&fNum, &sNum);
 
     printf("The Sum = %d", sum);
 }

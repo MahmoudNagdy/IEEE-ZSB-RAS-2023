@@ -1,18 +1,19 @@
 #include <stdio.h>
-#define size 6
+#define size 7
 
 
 void main(){
-    int arr[] = {1, 2, 3, 2, 5, 2};
-    int c = 0;
+    int arr[] = {0, 1, 0, 2, 1, 3, 2};
+    int count = 0;
 
     for(int i = 0; i < size; i++){
         for(int j = i +  1; j < size; j++){
             if(arr[j] == arr[i]){
-                c++;
+                count++;
+                break;
             }
         }
     }
 
-    printf("%d", c);
+    printf("%d", count);
 }

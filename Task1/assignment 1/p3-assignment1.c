@@ -1,23 +1,21 @@
 #include <stdio.h>
 
-int freq(int arr[]){
-
-    int count = 0;
+int repeat(int arr[]){
+    int c = 0;
     int freqArray[10];
-
     for(int i = 0; i < 10; i++){
-        count++;
+        c++;
         if(arr[i] != -1){
             for (int j = i + 1; j < 10; j++){
                 if(arr[i] == arr[j]){
-                    count++;
+                    c++;
                     arr[j] = -1;
                 }
         }
     }
 
-    freqArray[i] = count;
-    count = 0;
+    freqArray[i] = c;
+    c = 0;
                 
     }
 
@@ -31,5 +29,5 @@ int freq(int arr[]){
 
 void main(){
     int arr[] = {1, 2, 3, 4, 4, 3, 2, 1, 1, 4};
-    freq(arr);
+    repeat(arr);
 }
