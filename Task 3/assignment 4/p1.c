@@ -23,6 +23,6 @@ union database{
 void main(){
     printf("The Size Of Union: %d\n",sizeof(union database));
     printf("The Size Of Shops: %d\n",sizeof(struct shops));
-    printf("The Size Of Produc_info: %d\n",sizeof(struct product_info));
+    printf("The Size Of Product_info: %d\n",sizeof(struct product_info));
     printf("The Size Of Category: %d\n",sizeof(struct category));
 }
