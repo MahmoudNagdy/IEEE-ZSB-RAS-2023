@@ -7,6 +7,13 @@ struct test
     char class_id;
 };
 
+struct test1
+{
+    char* name;
+    int id;
+    char class_id;
+};
+
 
 void main(){
     
@@ -17,4 +24,6 @@ I will suppose that we have 64-bit processor, This processor does 8 byte in 1 cy
 but when string is first we will need 2 cycles and that means 2 * 8 = 16 byte.
 */
 
+    printf("The Size Of The Struct Before Change The Order: %d\n", sizeof(struct test));
+    printf("The Size Of The Struct After Change The Order: %d", sizeof(struct test1));
 }
