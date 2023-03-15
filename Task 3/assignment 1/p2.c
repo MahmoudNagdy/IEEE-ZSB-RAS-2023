@@ -11,24 +11,19 @@ struct student_info{
 
 struct student_info student[n];
 
-void student_info(int roll_number, char* name, int age, char* address, double marks){
+void student_info(struct student_info students[n]){
     int count = 0;
-
+    
     printf("Students Info:\n");
     for(int i = 0; i < n; i++){
-        roll_number = student[i].roll_number;
-        name = student[i].name;
-        age = student[i].age;
-        address = student[i].address;
-        marks = student[i].marks;
-        printf("roll number = %d\n", roll_number);
-        printf("name = %s\n", name);
-        printf("age = %d\n", age);
-        printf("address = %s\n", address);
-        printf("total marks = %.2f\n", marks);
+        printf("The Roll Number Is: %d\n", students[i].roll_number);
+        printf("The Name Is: %s\n", students[i].name);
+        printf("The Age Is: %d\n", students[i].age);
+        printf("The Address Is: %s\n", students[i].address);
+        printf("The Total Marks Is: %d\n", students[i].marks);
         printf("------------------------------------\n");
 
-        if(marks < 12){
+        if(students[i].marks < 12){
             count++;
         }
 
@@ -48,13 +43,13 @@ void main(){
     student[1].roll_number = 5;
     student[1].name = "Mohamed";
     student[1].age = 16;
-    student[1].address = "Sharqia";
+    student[1].address = "Giza";
     student[1].marks = 11.5;
 
     student[2].roll_number = 2;
     student[2].name = "Hesham";
     student[2].age = 17;
-    student[2].address = "Sharqia";
+    student[2].address = "Dumiat";
     student[2].marks = 12;
 
     student[3].roll_number = 6;
@@ -72,7 +67,7 @@ void main(){
     student[5].roll_number = 7;
     student[5].name = "Hossam";
     student[5].age = 21;
-    student[5].address = "Sharqia";
+    student[5].address = "mansora";
     student[5].marks = 10;
 
     student[6].roll_number = 4;
@@ -84,7 +79,7 @@ void main(){
     student[7].roll_number = 8;
     student[7].name = "Mohamed";
     student[7].age = 16;
-    student[7].address = "Sharqia";
+    student[7].address = "Aswan";
     student[7].marks = 16;
 
     student[8].roll_number = 5;
@@ -96,7 +91,7 @@ void main(){
     student[9].roll_number = 9;
     student[9].name = "Mahmoud";
     student[9].age = 20;
-    student[9].address = "Sharqia";
+    student[9].address = "Alex";
     student[9].marks = 17;
 
     student[10].roll_number = 6;
@@ -114,24 +109,23 @@ void main(){
     student[12].roll_number = 7;
     student[12].name = "Omar";
     student[12].age = 21;
-    student[12].address = "Sharqia";
+    student[12].address = "Ismailia";
     student[12].marks = 14;
 
     student[13].roll_number = 11;
     student[13].name = "Samy";
     student[13].age = 14;
-    student[13].address = "Sharqia";
+    student[13].address = "Luxor";
     student[13].marks = 9.5;
 
     student[14].roll_number = 20;
     student[14].name = "Haidi";
     student[14].age = 18;
-    student[14].address = "Sharqia";
+    student[14].address = "Bani Sweif";
     student[14].marks = 11;
 
-    for(int i = 0; i < n; i++){
-        student_info(student[i].roll_number, student[i].name, student[i].age, student[i].address, student[i].marks);
-        break;
-    }
+
+    student_info(student);
+
 
 }
