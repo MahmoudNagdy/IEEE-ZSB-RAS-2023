@@ -1,1 +1,0 @@
-scanf("%s", &name[i]);
