@@ -3,7 +3,7 @@
 #define stop "!"
 
 void main(){
-    char s[100], unique[100] = {0}, exist = 0;
+    char s[100];
     printf("Enter ! if you want to stop\n");
     printf("Enter a string:\n");
     while (1)

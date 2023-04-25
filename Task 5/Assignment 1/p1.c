@@ -6,6 +6,20 @@ void main(){
     int *ptr2 = (int *) calloc(2, sizeof(int));
     ptr1 = (int *) realloc(ptr1, 10 * sizeof(int));
 
+    if(ptr1 == NULL){
+        printf("Invalid allocation For ptr1\n");
+    }
+    else{
+        printf("Successful Allocation For ptr1\n");
+    }
+
+    if(ptr2 == NULL){
+        printf("Invalid allocation For ptr2\n");
+    }
+    else{
+        printf("Successful Allocation For ptr2\n");
+    }
+
     printf("Enter The Element Of the Malloc Blocks:\n");
     for (int i = 0; i < 1; i++){
         scanf("%d", &ptr1[i]);
