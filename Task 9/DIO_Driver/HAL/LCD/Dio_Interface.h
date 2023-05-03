@@ -20,9 +20,7 @@
 #define PIN6_ID                6
 #define PIN7_ID                7
 
-/*******************************************************************************
- *                               Types Declaration                             *
- *******************************************************************************/
+
 typedef enum
 {
 	PIN_INPUT,PIN_OUTPUT
@@ -50,4 +48,4 @@ void LCD_setPortValue(u8 port_num, u8 value);
 
 u8 LCD_getPortValue(u8 port_num);
 
-#endif /* DIO_INTERFACE_H_ */
+#endif
