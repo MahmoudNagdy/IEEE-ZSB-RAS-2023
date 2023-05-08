@@ -59,3 +59,28 @@ void LCD_displayString(const char *str){
 			i++;
 		}
 }
+
+void LCD_ClearScreen(void){
+	LCD_sendCommand(0x01);
+	_delay_ms(2);
+}
+
+void LCD_ShiftingLeft(void){
+	LCD_sendCommand(LCD_ShiftLeft);
+	_delay_ms(20);
+}
+
+void LCD_ShiftingRight(void){
+	LCD_sendCommand(LCD_ShiftRight);
+	_delay_ms(20);
+}
+
+
+void LCD_WriteSpecialChar(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit){
+	LCD_sendCommand(Copy_u8SpecialCharStartBit);
+	for(int i = 0; i < 8; i++){
+		LCD_displayCharacter(Copy_u8P_Ptr[i]);
+	}
+	LCD_GoToXY(Copy_u8LineNum, Copy_u8Location);
+	LCD_displayCharacter(Copy_CharNum);
+}
