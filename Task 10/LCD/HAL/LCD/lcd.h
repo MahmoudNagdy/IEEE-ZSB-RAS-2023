@@ -33,5 +33,6 @@ void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location);
 void LCD_ClearScreen(void);
 void LCD_ShiftingLeft(void);
 void LCD_ShiftingRight(void);
+void LCD_String_xy (char row, char pos, char *str, u8 *count);
 void LCD_WriteSpecialChar(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit);
 #endif /* LCD_H_ */

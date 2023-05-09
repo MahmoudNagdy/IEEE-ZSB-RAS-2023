@@ -42,6 +42,7 @@ void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location){
 		switch (Copy_u8LineNum){
 				case 0:
 					LCD_sendCommand(LCD_Line0 + Copy_u8Location);
+
 					break;
 				case 1:
 					LCD_sendCommand(LCD_Line1 + Copy_u8Location);
@@ -51,12 +52,42 @@ void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location){
 
 }
 
+
+
 void LCD_displayString(const char *str){
 	u8 i = 0;
 	while(str[i] != '\0')
 		{
 		LCD_displayCharacter(str[i]);
 			i++;
+		}
+
+}
+
+void LCD_String_xy (char row, char pos, char *str, u8 *count)/* Send string to LCD with xy position */
+{
+	u8 i = 0, c = 1;
+	if (row == 0 && pos<16)
+		LCD_sendCommand((pos & 0x0F)|0x80);	/* Command of first row and required position<16 */
+	else if (row == 1 && pos<16)
+		LCD_sendCommand((pos & 0x0F)|0xC0);	/* Command of first row and required position<16 */
+
+	while(str[i] != '\0')
+		{
+		LCD_displayCharacter(str[i]);
+			i++;
+
+			if (row == 0 && pos > 2 && i == 11){
+				LCD_GoToXY(1, 0);
+				LCD_displayCharacter(str[i]);
+				c++;
+			}
+
+			else if(row == 1 && pos > 2 && i == 11){
+				LCD_ClearScreen();
+			}
+
+			*count = c;
 		}
 }
 
@@ -83,4 +114,10 @@ void LCD_WriteSpecialChar(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, 
 	}
 	LCD_GoToXY(Copy_u8LineNum, Copy_u8Location);
 	LCD_displayCharacter(Copy_CharNum);
+
+	if(Copy_u8Location > 15){
+		LCD_ClearScreen();
+		LCD_GoToXY(0, 0);
+		LCD_displayCharacter(Copy_CharNum);
+	}
 }

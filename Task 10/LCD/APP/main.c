@@ -10,44 +10,45 @@ u8 pattern6[] = {0x00, 0x00, 0x0A, 0x00, 0x04, 0x11, 0x0E, 0x00};
 u8 pattern7[] = {0x0A, 0x0A, 0x1F, 0x11, 0x11, 0x0E, 0x04, 0x04};
 int main(void)
 {
-
+	u8 count = 0;
 	LCD_setPortDirection(0, 0);
 	LCD_setPortDirection(1, 0);
 	LCD_init();
 
-	LCD_GoToXY(0, 3);
-	LCD_displayString("LCD Sticker");
+	//LCD_GoToXY(0, 3);
+	//LCD_displayString("Embedded System");
+	LCD_String_xy (0, 0, "Embedded System", &count);
 
 	while (1)
 	{
 
 
 		if(LCD_getPinValue(0, 0)){
-			LCD_WriteSpecialChar(0, pattern1, 1, 2, 0b01000000);
+			LCD_WriteSpecialChar(0, pattern1, 1, count + 3, 0b01000000);
 		}
 
 		else if(LCD_getPinValue(0, 5)){
-			LCD_WriteSpecialChar(2, pattern2, 1, 4, 0b01010000);
+			LCD_WriteSpecialChar(2, pattern2, 1, count + 5, 0b01010000);
 		}
 
 		else if(LCD_getPinValue(0, 6)){
-			LCD_WriteSpecialChar(3, pattern3, 1, 6, 0b01011000);
+			LCD_WriteSpecialChar(3, pattern3, 1, count + 7, 0b01011000);
 		}
 
 		else if(LCD_getPinValue(0, 7)){
-			LCD_WriteSpecialChar(4, pattern4, 1, 8, 0b01100000);
+			LCD_WriteSpecialChar(4, pattern4, 1, count + 9, 0b01100000);
 		}
 
 		else if(LCD_getPinValue(1, 0)){
-			LCD_WriteSpecialChar(5, pattern5, 1, 10, 0b01101000);
+			LCD_WriteSpecialChar(5, pattern5, 1, count + 11, 0b01101000);
 		}
 
 		else if(LCD_getPinValue(1, 2)){
-			LCD_WriteSpecialChar(6, pattern6, 1, 12, 0b01110000);
+			LCD_WriteSpecialChar(6, pattern6, 1, count + 13, 0b01110000);
 		}
 
 		else if(LCD_getPinValue(1, 4)){
-			LCD_WriteSpecialChar(7, pattern7, 1, 14, 0b01111000);
+			LCD_WriteSpecialChar(7, pattern7, 1, count + 14, 0b01111000);
 		}
 	}
 
