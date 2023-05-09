@@ -142,7 +142,7 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x21da
+.text           0x00000000     0x21bc
  *(.vectors)
  .vectors       0x00000000       0x54 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -282,33 +282,33 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
                 0x00001afa       0x52 ./HAL/LCD/lcd.o
                 0x00001afa                LCD_displayString
  .text.LCD_String_xy
-                0x00001b4c       0xf6 ./HAL/LCD/lcd.o
+                0x00001b4c       0xda ./HAL/LCD/lcd.o
                 0x00001b4c                LCD_String_xy
  .text.LCD_ClearScreen
-                0x00001c42      0x110 ./HAL/LCD/lcd.o
-                0x00001c42                LCD_ClearScreen
+                0x00001c26      0x110 ./HAL/LCD/lcd.o
+                0x00001c26                LCD_ClearScreen
  .text.LCD_ShiftingLeft
-                0x00001d52      0x110 ./HAL/LCD/lcd.o
-                0x00001d52                LCD_ShiftingLeft
+                0x00001d36      0x110 ./HAL/LCD/lcd.o
+                0x00001d36                LCD_ShiftingLeft
  .text.LCD_ShiftingRight
-                0x00001e62      0x110 ./HAL/LCD/lcd.o
-                0x00001e62                LCD_ShiftingRight
+                0x00001e46      0x110 ./HAL/LCD/lcd.o
+                0x00001e46                LCD_ShiftingRight
  .text.LCD_WriteSpecialChar
-                0x00001f72       0x90 ./HAL/LCD/lcd.o
-                0x00001f72                LCD_WriteSpecialChar
- .text.main     0x00002002      0x166 ./APP/main.o
-                0x00002002                main
- .text.libgcc   0x00002168        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00002168        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00002168       0x38 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00002168                __prologue_saves__
- .text.libgcc   0x000021a0       0x36 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x000021a0                __epilogue_restores__
-                0x000021d6                . = ALIGN (0x2)
+                0x00001f56       0x90 ./HAL/LCD/lcd.o
+                0x00001f56                LCD_WriteSpecialChar
+ .text.main     0x00001fe6      0x164 ./APP/main.o
+                0x00001fe6                main
+ .text.libgcc   0x0000214a        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000214a        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000214a       0x38 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x0000214a                __prologue_saves__
+ .text.libgcc   0x00002182       0x36 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00002182                __epilogue_restores__
+                0x000021b8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000021d6        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000021d6                exit
-                0x000021d6                _exit
+ .fini9         0x000021b8        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000021b8                exit
+                0x000021b8                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -327,11 +327,11 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000021d6        0x4 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000021b8        0x4 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000021da                _etext = .
+                0x000021bc                _etext = .
 
-.data           0x00800060       0x50 load address 0x000021da
+.data           0x00800060       0x50 load address 0x000021bc
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -408,8 +408,8 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
  *(.bss*)
  *(COMMON)
                 0x008000b0                PROVIDE (__bss_end, .)
-                0x000021da                __data_load_start = LOADADDR (.data)
-                0x0000222a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000021bc                __data_load_start = LOADADDR (.data)
+                0x0000220c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000b0        0x0
                 0x008000b0                PROVIDE (__noinit_start, .)
@@ -434,13 +434,13 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1ae8
+.stab           0x00000000     0x1ad0
  *(.stab)
  .stab          0x00000000      0x870 ./MCAL/DIO/DIO_Program.o
- .stab          0x00000870      0xf54 ./HAL/LCD/lcd.o
-                               0x10e0 (size before relaxing)
- .stab          0x000017c4      0x324 ./APP/main.o
-                                0x4bc (size before relaxing)
+ .stab          0x00000870      0xf48 ./HAL/LCD/lcd.o
+                               0x10d4 (size before relaxing)
+ .stab          0x000017b8      0x318 ./APP/main.o
+                                0x4b0 (size before relaxing)
 
 .stabstr        0x00000000      0xfb4
  *(.stabstr)

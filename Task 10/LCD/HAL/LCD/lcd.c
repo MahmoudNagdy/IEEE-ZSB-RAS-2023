@@ -79,7 +79,6 @@ void LCD_String_xy (char row, char pos, char *str, u8 *count)/* Send string to L
 
 			if (row == 0 && pos > 2 && i == 11){
 				LCD_GoToXY(1, 0);
-				LCD_displayCharacter(str[i]);
 				c++;
 			}
 

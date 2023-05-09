@@ -10,14 +10,13 @@ u8 pattern6[] = {0x00, 0x00, 0x0A, 0x00, 0x04, 0x11, 0x0E, 0x00};
 u8 pattern7[] = {0x0A, 0x0A, 0x1F, 0x11, 0x11, 0x0E, 0x04, 0x04};
 int main(void)
 {
-	u8 count = 0;
+	u8 count;
 	LCD_setPortDirection(0, 0);
 	LCD_setPortDirection(1, 0);
 	LCD_init();
 
 	//LCD_GoToXY(0, 3);
-	//LCD_displayString("Embedded System");
-	LCD_String_xy (0, 0, "Embedded System", &count);
+	LCD_String_xy (0, 3, "Embedded System", &count);
 
 	while (1)
 	{

@@ -21,8 +21,14 @@
 #define LCD_Line0					   0x80
 #define LCD_Line1					   0xC0
 
+#define LCD_CURSOR_OFF                       0x0C
+#define LCD_CURSOR_ON                        0x0E
+#define LCD_SET_CURSOR_LOCATION              0x80
+
 #define LCD_ShiftRight				   0b00011100
 #define LCD_ShiftLeft				   0b00011000
+
+
 
 
 void LCD_sendCommand(u8 command);
@@ -35,4 +41,6 @@ void LCD_ShiftingLeft(void);
 void LCD_ShiftingRight(void);
 void LCD_String_xy (char row, char pos, char *str, u8 *count);
 void LCD_WriteSpecialChar(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit);
+
+
 #endif /* LCD_H_ */
