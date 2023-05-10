@@ -142,7 +142,7 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x2192
+.text           0x00000000     0x21b8
  *(.vectors)
  .vectors       0x00000000       0x54 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -296,19 +296,19 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
  .text.LCD_WriteSpecialChar
                 0x00001f56       0x90 ./HAL/LCD/lcd.o
                 0x00001f56                LCD_WriteSpecialChar
- .text.main     0x00001fe6      0x13a ./APP/main.o
+ .text.main     0x00001fe6      0x160 ./APP/main.o
                 0x00001fe6                main
- .text.libgcc   0x00002120        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00002120        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00002120       0x38 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00002120                __prologue_saves__
- .text.libgcc   0x00002158       0x36 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00002158                __epilogue_restores__
-                0x0000218e                . = ALIGN (0x2)
+ .text.libgcc   0x00002146        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00002146        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00002146       0x38 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00002146                __prologue_saves__
+ .text.libgcc   0x0000217e       0x36 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000217e                __epilogue_restores__
+                0x000021b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000218e        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000218e                exit
-                0x0000218e                _exit
+ .fini9         0x000021b4        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000021b4                exit
+                0x000021b4                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -327,11 +327,11 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000218e        0x4 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000021b4        0x4 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00002192                _etext = .
+                0x000021b8                _etext = .
 
-.data           0x00800060       0x50 load address 0x00002192
+.data           0x00800060       0x50 load address 0x000021b8
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -408,8 +408,8 @@ LOAD d:/imt_avr_records/00-tools/05-toolchains/sdk_win_64/winavr/bin/../lib/gcc/
  *(.bss*)
  *(COMMON)
                 0x008000b0                PROVIDE (__bss_end, .)
-                0x00002192                __data_load_start = LOADADDR (.data)
-                0x000021e2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000021b8                __data_load_start = LOADADDR (.data)
+                0x00002208                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000b0        0x0
                 0x008000b0                PROVIDE (__noinit_start, .)
