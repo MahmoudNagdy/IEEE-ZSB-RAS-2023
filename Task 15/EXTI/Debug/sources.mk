@@ -20,11 +20,14 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-DC_MOTOR \
-. \
-EXTI \
-Global_Interrupt/Debug \
-Global_Interrupt \
+APP \
+HAL/DC_MOTOR \
+HAL/KEYPAD \
+HAL/LCD \
+HAL/Stepper \
 MCAL/DIO \
-Stepper \
+MCAL/DIO_LCD \
+MCAL/EXTI \
+MCAL/Global_Interrupt/Debug \
+MCAL/Global_Interrupt \
 

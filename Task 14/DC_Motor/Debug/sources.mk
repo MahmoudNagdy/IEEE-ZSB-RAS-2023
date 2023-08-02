@@ -20,8 +20,12 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-DC_MOTOR \
-. \
+APP \
+HAL/DC_MOTOR \
+HAL/KEYPAD \
+HAL/LCD \
+HAL/Stepper \
 MCAL/DIO \
-Stepper \
+MCAL/DIO_LCD \
+MCAL/Switch_Driver \
 
