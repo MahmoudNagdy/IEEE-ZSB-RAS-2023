@@ -1,21 +1,10 @@
+#ifndef BIT_MATH_H
+#define BIT_MATH_H
 
-#ifndef COMMON_MACROS
-#define COMMON_MACROS
-
-/* Set a certain bit in any register */
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
-
-/* Clear a certain bit in any register */
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-
-/* Toggle a certain bit in any register */
-#define TOGGLE_BIT(REG,BIT) (REG^=(1<<BIT))
-
-/* Rotate right the register value with specific number of rotates */
-#define ROR(REG,num) ( REG= (REG>>num) | (REG<<(8-num)) )
-
-/* Rotate left the register value with specific number of rotates */
-#define ROL(REG,num) ( REG= (REG<<num) | (REG>>(8-num)) )
+#define SET_BIT(VAR, BITNO)		VAR |= (1 << BITNO)
+#define CLR_BIT(VAR, BITNO)		VAR &= ~(1 << BITNO)
+#define GET_BIT(VAR, BITNO)		((VAR >> BITNO) & 1)
+#define TOG_BIT(VAR, BITNO)		VAR ^= (1 << BITNO)
 
 /* Check if a specific bit is set in any register and return true if yes */
 #define BIT_IS_SET(REG,BIT) ( REG & (1<<BIT) )

@@ -56,6 +56,10 @@ DIO_u8_INPUT_FLOATING = 0,
 DIO_u8_INPUT_PULLUP
 };
 
+
+#define NUM_OF_PORTS 			4
+#define NUM_OF_PINS_PER_PORT 	8
+
 /* Macros For Initial Pin Direction*/
 #define DIO_u8_INITIAL_INPUT	0
 #define DIO_u8_INITIAL_OUTPUT	1

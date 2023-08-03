@@ -8,10 +8,17 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include MCAL/Switch_Driver/subdir.mk
 -include MCAL/LCD_DIO/subdir.mk
+-include MCAL/Global_Interrupt/Debug/subdir.mk
+-include MCAL/Global_Interrupt/subdir.mk
+-include MCAL/EXTI/subdir.mk
 -include MCAL/DIO/subdir.mk
+-include MCAL/ADC/subdir.mk
+-include HAL/Stepper/subdir.mk
 -include HAL/LCD/subdir.mk
--include HAL/ADC/subdir.mk
+-include HAL/KEYPAD/subdir.mk
+-include HAL/DC_MOTOR/subdir.mk
 -include APP/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -35,50 +42,41 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-ADC.lss \
-
-FLASH_IMAGE += \
-ADC.hex \
+DIO_Driver.lss \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: ADC.elf secondary-outputs
+all: DIO_Driver.elf secondary-outputs
 
 # Tool invocations
-ADC.elf: $(OBJS) $(USER_OBJS)
+DIO_Driver.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,ADC.map -mmcu=atmega32 -o "ADC.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,DIO_Driver.map -mmcu=atmega32 -o "DIO_Driver.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-ADC.lss: ADC.elf
+DIO_Driver.lss: DIO_Driver.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S ADC.elf  >"ADC.lss"
+	-avr-objdump -h -S DIO_Driver.elf  >"DIO_Driver.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ADC.hex: ADC.elf
-	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC.elf  "ADC.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
-sizedummy: ADC.elf
+sizedummy: DIO_Driver.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 ADC.elf
+	-avr-size --format=avr --mcu=atmega32 DIO_Driver.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) ADC.elf
+	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) DIO_Driver.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

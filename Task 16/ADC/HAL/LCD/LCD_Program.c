@@ -5,25 +5,31 @@
 /*************** Version  : 1.0 			**************/
 /*********************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <util/delay.h>
-#include "LCD_Interface.h"
-#include <avr/io.h>
+#include "../../HAL/LCD/LCD_Interface.h"
 
 #include "../../LIB/BIT_MATH.h"
-#include "../../MCAL/LCD_DIO/Dio_Interface.h"
+#include "../../MCAL/DIO/Dio_Interface.h"
 
-#define LDR_PIN 0 // Define the LDR input pin
-
-void LCD_sendCommand(u8 command){
+void LCD_sendCommand(u8 command)
+{
 
 	LCD_setPinValue(LCD_RS_PORT_ID, LCD_RS_PIN_ID, LOGIC_LOW);
 	_delay_ms(1);
 	LCD_setPinValue(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_HIGH);
 	_delay_ms(1);
 	LCD_setPortValue(LCD_DATA_PORT_ID, command);
+	_delay_ms(1);
+	LCD_setPinValue(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_LOW);
+	_delay_ms(1);
+}
+void LCD_displayCharacter(u8 data)
+{
+	LCD_setPinValue(LCD_RS_PORT_ID, LCD_RS_PIN_ID, LOGIC_HIGH);
+	_delay_ms(1);
+	LCD_setPinValue(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_HIGH);
+	_delay_ms(1);
+	LCD_setPortValue(LCD_DATA_PORT_ID, data);
 	_delay_ms(1);
 	LCD_setPinValue(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_LOW);
 	_delay_ms(1);
@@ -38,21 +44,12 @@ void LCD_display_32bit(u32 num){
     }
 }
 
-void LCD_displayCharacter(u8 data){
-	LCD_setPinValue(LCD_RS_PORT_ID, LCD_RS_PIN_ID, LOGIC_HIGH);
-	_delay_ms(1);
-	LCD_setPinValue(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_HIGH);
-	_delay_ms(1);
-	LCD_setPortValue(LCD_DATA_PORT_ID, data);
-	_delay_ms(1);
-	LCD_setPinValue(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_LOW);
-	_delay_ms(1);
-}
 
-void LCD_init(void){
-	LCD_setPinDirection(LCD_RS_PORT_ID, LCD_RS_PIN_ID, AVR_PIN_OUTPUT);
-	LCD_setPinDirection(LCD_E_PORT_ID, LCD_E_PIN_ID, AVR_PIN_OUTPUT);
-	LCD_setPortDirection(LCD_DATA_PORT_ID, AVR_PIN_OUTPUT);
+void LCD_init(void)
+{
+	LCD_setPinDirection(LCD_RS_PORT_ID, LCD_RS_PIN_ID, PIN_OUTPUT);
+	LCD_setPinDirection(LCD_E_PORT_ID, LCD_E_PIN_ID, PIN_OUTPUT);
+	LCD_setPortDirection(LCD_DATA_PORT_ID, PORT_OUTPUT);
 
 	_delay_ms(20);
 
@@ -61,7 +58,8 @@ void LCD_init(void){
 	LCD_sendCommand(LCD_CLEAR_COMMAND);
 }
 
-void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location){
+void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location)
+{
 	if (Copy_u8LineNum <= 39)
 	{
 		switch (Copy_u8LineNum)
@@ -77,7 +75,8 @@ void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location){
 	}
 }
 
-void LCD_displayString(const char *str){
+void LCD_displayString(const char *str)
+{
 	u8 i = 0;
 	while (str[i] != '\0')
 	{
@@ -86,7 +85,8 @@ void LCD_displayString(const char *str){
 	}
 }
 
-void LCD_String_xy(char row, char pos, char *str, u8 *count) /* Send string to LCD with xy position */{
+void LCD_String_xy(char row, char pos, char *str, u8 *count) /* Send string to LCD with xy position */
+{
 	u8 i = 0, c = 1;
 	if (row == 0 && pos < 16)
 		LCD_sendCommand((pos & 0x0F) | 0x80); /* Command of first row and required position<16 */
@@ -113,22 +113,26 @@ void LCD_String_xy(char row, char pos, char *str, u8 *count) /* Send string to L
 	}
 }
 
-void LCD_ClearScreen(void){
+void LCD_ClearScreen(void)
+{
 	LCD_sendCommand(0x01);
 	_delay_ms(2);
 }
 
-void LCD_ShiftingLeft(void){
+void LCD_ShiftingLeft(void)
+{
 	LCD_sendCommand(LCD_ShiftLeft);
 	_delay_ms(20);
 }
 
-void LCD_ShiftingRight(void){
+void LCD_ShiftingRight(void)
+{
 	LCD_sendCommand(LCD_ShiftRight);
 	_delay_ms(20);
 }
 
-void LCD_WriteSpecialChar(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit){
+void LCD_WriteSpecialChar(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit)
+{
 	LCD_sendCommand(Copy_u8SpecialCharStartBit);
 	for (int i = 0; i < 8; i++)
 	{

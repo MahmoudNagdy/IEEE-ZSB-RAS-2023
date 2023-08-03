@@ -8,7 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include MCAL/DIO_LCD/subdir.mk
+-include MCAL/LCD_DIO/subdir.mk
+-include MCAL/DIO/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
 -include APP/subdir.mk
@@ -34,50 +35,41 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-KEYPAD.lss \
-
-FLASH_IMAGE += \
-KEYPAD.hex \
+DIO_Driver.lss \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: KEYPAD.elf secondary-outputs
+all: DIO_Driver.elf secondary-outputs
 
 # Tool invocations
-KEYPAD.elf: $(OBJS) $(USER_OBJS)
+DIO_Driver.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,KEYPAD.map -mmcu=atmega32 -o "KEYPAD.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,DIO_Driver.map -mmcu=atmega32 -o "DIO_Driver.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-KEYPAD.lss: KEYPAD.elf
+DIO_Driver.lss: DIO_Driver.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S KEYPAD.elf  >"KEYPAD.lss"
+	-avr-objdump -h -S DIO_Driver.elf  >"DIO_Driver.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-KEYPAD.hex: KEYPAD.elf
-	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex KEYPAD.elf  "KEYPAD.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
-sizedummy: KEYPAD.elf
+sizedummy: DIO_Driver.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 KEYPAD.elf
+	-avr-size --format=avr --mcu=atmega32 DIO_Driver.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) KEYPAD.elf
+	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) DIO_Driver.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

@@ -6,10 +6,10 @@
 /*********************************************************/
 
 #include <util/delay.h>
-#include "LCD_Interface.h"
+#include "../../HAL/LCD/LCD_Interface.h"
 
 #include "../../LIB/BIT_MATH.h"
-#include "../../MCAL/DIO_LCD/Dio_Interface.h"
+#include "../../MCAL/DIO/Dio_Interface.h"
 
 void LCD_sendCommand(u8 command)
 {
@@ -36,9 +36,9 @@ void LCD_displayCharacter(u8 data)
 }
 void LCD_init(void)
 {
-	LCD_setPinDirection(LCD_RS_PORT_ID, LCD_RS_PIN_ID, AVR_PIN_OUTPUT);
-	LCD_setPinDirection(LCD_E_PORT_ID, LCD_E_PIN_ID, AVR_PIN_OUTPUT);
-	LCD_setPortDirection(LCD_DATA_PORT_ID, AVR_PIN_OUTPUT);
+	LCD_setPinDirection(LCD_RS_PORT_ID, LCD_RS_PIN_ID, PIN_OUTPUT);
+	LCD_setPinDirection(LCD_E_PORT_ID, LCD_E_PIN_ID, PIN_OUTPUT);
+	LCD_setPortDirection(LCD_DATA_PORT_ID, PORT_OUTPUT);
 
 	_delay_ms(20);
 

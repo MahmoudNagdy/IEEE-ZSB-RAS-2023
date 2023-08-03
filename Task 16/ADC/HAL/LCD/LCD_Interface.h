@@ -7,7 +7,7 @@
 
 #ifndef LCD_H_
 #define LCD_H_
-#include "../../LIB/STD_TYPES.h"
+#include "../../LIB/std_types.h"
 
 /* LCD HW Ports and Pins Ids */
 #define LCD_RS_PORT_ID PORTD_ID
@@ -35,9 +35,13 @@
 #define LCD_ShiftRight 0b00011100
 #define LCD_ShiftLeft 0b00011000
 
+
+#define LOGIC_HIGH        (1u)
+#define LOGIC_LOW         (0u)
+
 void LCD_sendCommand(u8 command);
+void LCD_displayCharacter(u8 data);
 void LCD_display_32bit(u32 num);
-void LCD_u8displayCharacter(u8 data);
 void LCD_init(void);
 void LCD_displayString(const char *str);
 void LCD_GoToXY(u8 Copy_u8LineNum, u8 Copy_u8Location);

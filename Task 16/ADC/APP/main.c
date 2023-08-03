@@ -1,8 +1,8 @@
-#include "../HAL/ADC/ADC_Interface.h";
-#include "../LIB/STD_TYPES.h";
-#include "../HAL/LCD/LCD_Interface.h";
+#include "../MCAL/ADC/ADC_Interface.h"
+#include "../LIB/STD_TYPES.h"
+#include "../HAL/LCD/LCD_Interface.h"
 
-#include "../MCAL/DIO/DIO_Interface.h";
+#include "../MCAL/DIO/DIO_Interface.h"
 
 #include<util/delay.h>
 #define F_CPU 16000000UL

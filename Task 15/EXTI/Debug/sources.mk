@@ -8,7 +8,6 @@ ASM_SRCS :=
 C_SRCS := 
 S_UPPER_SRCS := 
 O_SRCS := 
-FLASH_IMAGE := 
 ELFS := 
 OBJS := 
 ASM_DEPS := 
@@ -26,8 +25,9 @@ HAL/KEYPAD \
 HAL/LCD \
 HAL/Stepper \
 MCAL/DIO \
-MCAL/DIO_LCD \
 MCAL/EXTI \
 MCAL/Global_Interrupt/Debug \
 MCAL/Global_Interrupt \
+MCAL/LCD_DIO \
+MCAL/Switch_Driver \
 

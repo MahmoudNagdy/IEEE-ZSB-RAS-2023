@@ -1,31 +1,27 @@
-#ifndef STD_TYPES_H_
-#define STD_TYPES_H_
+#ifndef STD_TYPES_H
+#define STD_TYPES_H
 
-/* Boolean Data Type */
-typedef unsigned char boolean;
+typedef unsigned char u8;
+typedef unsigned short int u16;
+typedef unsigned long int u32;
 
-/* Boolean Values */
-#ifndef FALSE
-#define FALSE       (0u)
+
+typedef signed char s8;
+typedef signed short int s16;
+typedef signed long int s64;
+
+
+typedef float f32;
+typedef double f64;
+
+#define STD_TYPES_OK	1
+#define STD_TYPES_NOK	0
+
+#define DIO_u8_LOW  	0
+#define DIO_u8_HIGH 	1
+
+#define DIO_u8PortLow	0x00
+#define DIO_u8PortHigh	0xff
+
+#define NULL 			((void *)0)
 #endif
-#ifndef TRUE
-#define TRUE        (1u)
-#endif
-
-#define LOGIC_HIGH        (1u)
-#define LOGIC_LOW         (0u)
-
-#define NULL_PTR    ((void*)0)
-
-typedef unsigned char         u8;          /*           0 .. 255              */
-typedef signed char           s8;          /*        -128 .. +127             */
-typedef unsigned short        u16;         /*           0 .. 65535            */
-typedef signed short          s16;         /*      -32768 .. +32767           */
-typedef unsigned long         u32;         /*           0 .. 4294967295       */
-typedef signed long           s32;         /* -2147483648 .. +2147483647      */
-typedef unsigned long long    u64;         /*       0 .. 18446744073709551615  */
-typedef signed long long      s64;         /* -9223372036854775808 .. 9223372036854775807 */
-typedef float                 f32;
-typedef double                f64;
-
-#endif /* STD_TYPE_H_ */

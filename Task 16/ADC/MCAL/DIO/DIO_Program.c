@@ -249,6 +249,50 @@ u8 DIO_u8GetPinValue(u8 Copy_u8PortId, u8 Copy_u8PinId, u8 *Copy_pu8ReturnedPinV
 	return Local_u8ErrorState;
 }
 
+
+u8 DIO_getPinValueWithoutPointer(u8 port_num, u8 pin_num)
+{
+	u8 pin_value = DIO_u8_LOW;
+
+
+	if((pin_num >= NUM_OF_PINS_PER_PORT) || (port_num >= NUM_OF_PORTS))
+	{
+		/* Do Nothing */
+	}
+	else
+	{
+		/* Read the pin value as required */
+		switch (port_num)
+				{
+				case DIO_u8_PORTA:
+					pin_value = GET_BIT(DIO_u8_PINA_REG, pin_num);
+					break;
+
+				case DIO_u8_PORTB:
+					pin_value = GET_BIT(DIO_u8_PINB_REG, pin_num);
+					break;
+
+				case DIO_u8_PORTC:
+					pin_value = GET_BIT(DIO_u8_PINC_REG, pin_num);
+					break;
+
+				case DIO_u8_PORTD:
+					pin_value = GET_BIT(DIO_u8_PIND_REG, pin_num);
+					break;
+				}
+	}
+
+	return pin_value;
+}
+
+
+
+
+
+
+
+
+
 u8 DIO_u8SetPortDirection(u8 Copy_u8PortId, u8 Copy_u8PortDirection)
 {
 	switch (Copy_u8PortId)

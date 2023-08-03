@@ -1,13 +1,6 @@
-/*
- * Keypad.c
- *
- *  Created on: Jan 8, 2018
- *      Author: Mohamed
- */
 #include "Keypad.h";
 
-u8 Keypad_GetPressedKey()
-{
+u8 Keypad_GetPressedKey(){
 	u8 Col, Row;
 	while (1)
 	{

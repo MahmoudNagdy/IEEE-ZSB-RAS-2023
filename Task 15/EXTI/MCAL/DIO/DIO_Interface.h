@@ -28,29 +28,29 @@
 #define DIO_u8_PIN7 7
 
 /* Macros For Pin Direction*/
-#define DIO_u8_OUTPUT 1
-#define DIO_u8_INPUT 0
+#define DIO_u8_OUTPUT 			1
+#define DIO_u8_INPUT 			0
 
 /* Macros For Pin Value*/
-#define DIO_u8_HIGH 	1
-#define DIO_u8_LOW 		0
+#define DIO_u8_HIGH 			1
+#define DIO_u8_LOW 				0
 
-#define NUM_OF_PORTS 4
-#define NUM_OF_PINS_PER_PORT 8
+#define NUM_OF_PORTS 			4
+#define NUM_OF_PINS_PER_PORT 	8
 
-#define PORTA_ID 0
-#define PORTB_ID 1
-#define PORTC_ID 2
-#define PORTD_ID 3
+#define PORTA_ID 				0
+#define PORTB_ID 				1
+#define PORTC_ID 				2
+#define PORTD_ID 				3
 
-#define PIN0_ID 0
-#define PIN1_ID 1
-#define PIN2_ID 2
-#define PIN3_ID 3
-#define PIN4_ID 4
-#define PIN5_ID 5
-#define PIN6_ID 6
-#define PIN7_ID 7
+#define PIN0_ID 				0
+#define PIN1_ID 				1
+#define PIN2_ID 				2
+#define PIN3_ID 				3
+#define PIN4_ID 				4
+#define PIN5_ID 				5
+#define PIN6_ID 				6
+#define PIN7_ID 				7
 
 typedef enum
 {
@@ -71,6 +71,8 @@ u8 DIO_u8SetPinDirection(u8 Copy_u8PortId, u8 Copy_u8PinId, u8 Copy_u8PinDirecti
 u8 DIO_u8SetPinValue(u8 Copy_u8PortId, u8 Copy_u8PinId, u8 Copy_u8PinValue);
 
 u8 DIO_u8GetPinValue(u8 Copy_u8PortId, u8 Copy_u8PinId, u8 *Copy_pu8ReturnedPinValue);
+
+u8 DIO_getPinValueWithoutPointer(u8 port_num, u8 pin_num);
 
 u8 DIO_u8SetPortDirection(u8 Copy_u8PortId, u8 Copy_u8PortDirection);
 
