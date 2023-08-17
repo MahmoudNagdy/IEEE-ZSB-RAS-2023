@@ -11,6 +11,7 @@
      <ITEM name="Message Column Width">671</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
+     <ITEM name="Time Column Width">120</ITEM>
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
@@ -94,7 +95,7 @@
      <ITEM name="TopLineAddress">00000020</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="600" x="88" flags="0000002b" y="155" h="400" pid="1" iid="1">
+   <POPUP w="600" x="268" flags="0000002b" y="335" h="400" pid="1" iid="1">
     <PROPERTIES>
      <ITEM name="CaseSensitive">No</ITEM>
      <ITEM name="DISPADDRS">Yes</ITEM>
@@ -105,7 +106,7 @@
      <ITEM name="nBreakpoints">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="300" x="108" flags="0000000b" y="175" h="300" pid="2" iid="1">
+   <POPUP w="300" x="288" flags="0000000b" y="355" h="300" pid="2" iid="1">
     <PROPERTIES>
      <ITEM name="Address Column Width">96</ITEM>
      <ITEM name="AutoResize">No</ITEM>
