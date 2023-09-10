@@ -5,7 +5,7 @@ int main(void){
 	u8 RecieveData;
 	DIO_voidInit();
 	UART_Init();
-	UART_SendString("Enter R | Y | G | S(To Stop) : \n");
+	UART_SendString("Enter R | Y | G | S(To Stop) : \n\r");
 	while(1){
 		UART_u8Recieve1ByteData(&RecieveData);
 
